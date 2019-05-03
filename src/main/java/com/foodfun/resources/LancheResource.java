@@ -1,5 +1,6 @@
 package com.foodfun.resources;
 
+import com.foodfun.domain.Ingrediente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,11 +14,13 @@ import com.foodfun.services.LancheService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.BeanUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
+@CrossOrigin
 @RequestMapping(value="/lanches")
 public class LancheResource {
 	
@@ -32,6 +35,11 @@ public class LancheResource {
         @GetMapping
 	public List<Lanche> listar() {
 		return  service.listar();
+	}
+        
+        @RequestMapping(value="/ingredientes")
+	public List<Ingrediente> listarIngredientes() {
+		return  service.listarIngredientes();
 	}
         
         @RequestMapping(value="/{id}/{iding}", method=RequestMethod.PUT)

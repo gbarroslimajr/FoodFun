@@ -21,11 +21,15 @@ public class LancheService {
 		Optional<Lanche> obj = lr.findById(id);                
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Lanche.class.getName()));
-	}
+    }
     
     public List<Lanche> listar()  {
 	return  lr.findAll();  		
-	}
+    }
+    
+    public List<Ingrediente> listarIngredientes()  {
+	return  ir.findAll();  		
+    }
     
     
     public Lanche inserirIngrediente(Integer id, int idIngrediente){
