@@ -42,23 +42,30 @@ public class LancheResource {
 		return  service.listarIngredientes();
 	}
         
-        @RequestMapping(value="/{id}/{iding}", method=RequestMethod.PUT)
+        @RequestMapping(value="/{id}/{iding}/{qtde}", method=RequestMethod.PUT)
 	public ResponseEntity<Lanche> inserirIngrediente(@PathVariable("id") Integer id, 
-                @PathVariable("iding") Integer iding) {
-                
-            Lanche obj = service.inserirIngrediente(id, iding);
+                @PathVariable("iding") Integer iding,
+                @PathVariable("qtde") Integer qtde) {
+            
+            Lanche obj = null;
+            for (int i = 0; i < qtde; i++){  
+                obj = service.inserirIngrediente(id, iding);
+            }
             return ResponseEntity.ok(obj);
 		
 	}
         
-        @RequestMapping(value="/{id}/{iding}", method=RequestMethod.DELETE)
+        @RequestMapping(value="/{id}/{iding}/{qtde}", method=RequestMethod.DELETE)
 	public ResponseEntity<Lanche> excluirIngrediente(@PathVariable("id") Integer id, 
-                @PathVariable("iding") Integer iding) {
-                
-            Lanche obj = service.excluirIngrediente(id, iding);
-            return ResponseEntity.noContent().build();
-
-		
+                @PathVariable("iding") Integer iding,
+                @PathVariable("qtde") Integer qtde)  {
+            
+        
+            Lanche obj = null;
+            for (int i = 0; i < qtde; i++){      
+                obj = service.excluirIngrediente(id, iding);
+            }
+            return ResponseEntity.noContent().build();		
 	}
         
 }

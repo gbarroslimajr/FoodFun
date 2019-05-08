@@ -41,9 +41,11 @@ public class LancheService {
         lanche.getIngredientes().add(ingrediente);
         ingrediente.getLanches().add(lanche);
        
-        
-         final Lanche updatedObj = lr.save(lanche);
-         ir.save(ingrediente);
+      
+         final Lanche  updatedObj = lr.save(lanche);
+            ir.save(ingrediente);
+         
+         
         return updatedObj;
         
     }

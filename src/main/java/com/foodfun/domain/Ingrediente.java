@@ -30,6 +30,8 @@ public class Ingrediente implements Serializable{
 		inverseJoinColumns = @JoinColumn(name = "ingrediente_id")
 	)
 	private List<Lanche> lanches = new ArrayList<>();
+        
+        
 
         public Ingrediente() {}
 
@@ -72,6 +74,8 @@ public class Ingrediente implements Serializable{
         this.lanches = lanches;
     }
 
+   
+    
     @Override
     public int hashCode() {
         int hash = 5;

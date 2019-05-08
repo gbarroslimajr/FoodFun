@@ -22,7 +22,7 @@ public class Lanche implements Serializable{
      
     @ManyToMany(mappedBy="lanches")
     private List<Ingrediente> ingredientes = new ArrayList<>();
-        
+    
     public Lanche() {}
 
     public Lanche(Integer id, String nome) {
